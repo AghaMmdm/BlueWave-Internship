@@ -138,3 +138,4 @@ while True:
             state = "num1"
 
     display()
+
