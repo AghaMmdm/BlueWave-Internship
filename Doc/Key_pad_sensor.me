@@ -1,0 +1,138 @@
+# Keypad-Based Calculator with OLED Display (MicroPython)
+
+## 1. Project Overview
+
+This project implements a simple multi-digit calculator using a 4x4 keypad and an OLED display. The system is built using MicroPython on a microcontroller board (e.g., Pyboard). Users can input numbers and perform basic arithmetic operations, with results displayed on an OLED screen.
+
+---
+
+## 2. Features
+
+* Multi-digit number input
+* Four basic operations:
+
+  * Addition (+)
+  * Subtraction (-)
+  * Multiplication (*)
+  * Division (/)
+* OLED display output
+* Clear function using '*' key
+* Equals function using '#' key
+* Error handling (e.g., division by zero)
+
+---
+
+## 3. Hardware Components
+
+* Microcontroller board (Pyboard or compatible)
+* 4x4 Matrix Keypad
+* OLED Display (128x32, I2C)
+* Connecting wires
+
+---
+
+## 4. Pin Configuration
+
+### Keypad Connections:
+
+| Keypad  | Microcontroller Pin |
+| ------- | ------------------- |
+| Rows    | X22, X21, X20, X19  |
+| Columns | X4, X3, X2, X1      |
+
+### OLED:
+
+* Connected via I2C (default bus 2)
+
+---
+
+## 5. Software Requirements
+
+* MicroPython firmware
+* Thonny IDE (or any MicroPython-compatible IDE)
+* Required libraries:
+
+  * `machine`
+  * `time`
+  * `bluelib` (for OLED)
+
+---
+
+## 6. System Design
+
+### 6.1 Keypad Scanning
+
+The keypad is scanned using a column-wise scanning technique:
+
+* Columns are set as output pins
+* Rows are set as input pins
+* When a key is pressed, a connection is detected between a specific row and column
+
+### 6.2 State Machine
+
+The calculator operates using three states:
+
+* Input first number (num1)
+* Select operation
+* Input second number (num2)
+
+### 6.3 Operation Mapping
+
+Keypad buttons are mapped as follows:
+
+* A → +
+* B → -
+* C → *
+* D → /
+
+---
+
+## 7. Program Logic
+
+1. Initialize OLED display and keypad pins
+2. Continuously scan keypad for input
+3. Build multi-digit numbers using successive key presses
+4. Store selected operation
+5. Compute result when '#' is pressed
+6. Display the result on OLED
+7. Reset or continue calculation
+
+---
+
+## 8. Display Output
+
+### Example:
+
+12 + 34
+= 46
+
+The OLED displays:
+
+* First number
+* Operation symbol
+* Second number
+* Result
+
+---
+
+## 9. Error Handling
+
+* Division by zero is detected and handled
+* Invalid inputs are ignored
+* Clear button (*) resets the system
+
+---
+
+## 10. Conclusion
+
+This project demonstrates how to interface a keypad and OLED display with a microcontroller using MicroPython. It also showcases basic embedded system concepts such as input scanning, state machines, and user interface design.
+
+---
+
+## 11. Author
+
+* Name: Mohammad Rahimi
+* Course: Embedded Systems / Microcontrollers
+* Date: 5/3/2026
+
+---
