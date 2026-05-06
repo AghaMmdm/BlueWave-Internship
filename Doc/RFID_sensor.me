@@ -1,0 +1,34 @@
+# MicroPython RFID RC522 Reader (Pyboard/STM32)
+
+A simple and efficient implementation of the MFRC522 RFID reader using MicroPython. This project is specifically configured for the **MicroBluepy** using hardware SPI.
+
+## Hardware Connections
+
+To use this code, connect your RC522 module to the Pyboard as follows:
+
+| RC522 Pin | Pyboard Pin | Role |
+|-----------|-------------|------|
+| **SDA (SS)** | **X5** | Chip Select |
+| **SCK** | **X6** | Serial Clock |
+| **MOSI** | **X8** | Master Out Slave In |
+| **MISO** | **X7** | Master In Slave Out |
+| **RST** | **X4** | Reset |
+| **3.3V** | **3.3V** | Power |
+| **GND** | **GND** | Ground |
+
+## Installation
+
+1. Clone this repository or download the files.
+2. Upload `mfrc522.py` (the library) to your MicroPython board.
+3. Upload `main.py` (the script) to your board.
+4. Run `main.py` using your preferred IDE (Thonny, rshell, etc.).
+
+## Usage
+
+Once the script is running, open the serial terminal. When you place an RFID tag or card near the reader, the unique ID (UID) will be displayed in the console:
+```text
+--- RFID Reader Ready ---
+Place your tag near the reader...
+
+New Card Detected!
+Card ID:  a1b2c3d4
