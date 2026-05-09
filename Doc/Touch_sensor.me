@@ -1,0 +1,33 @@
+# MicroBluePy Touch Sensor with OLED Display
+
+This project demonstrates how to interface a digital touch sensor and an I2C OLED display with the **MicroBluePy** board. When the sensor is touched, the onboard LED turns on and the display updates its status in real-time.
+
+## Features
+- **Real-time Detection:** High-speed polling of the touch sensor.
+- **Visual Feedback:** Status updates displayed on a 128x32 I2C OLED.
+- **Hardware Integration:** Utilizes MicroPython's `machine` and `pyb` libraries for hardware control.
+
+## Hardware Requirements
+- **Board:** MicroBluePy
+- **Display:** SSD1306 OLED (128x32) via I2C
+- **Sensor:** Digital Touch Sensor
+- **LED:** Onboard LED (LED 1)
+
+## Wiring Diagram
+| Component | Pin / Port |
+| :--- | :--- |
+| **OLED SDA/SCL** | I2C(2) |
+| **Touch Sensor Out** | X20 |
+| **Onboard LED** | LED(1) |
+
+## Installation & Setup
+1.  Ensure you have the `bluelib` library uploaded to your MicroBluePy board (required for the OLED driver).
+2.  Connect the OLED display to the I2C(2) bus.
+3.  Connect the digital output of your touch sensor to pin **X20**.
+4.  Copy the `main.py` code to your board and reset it.
+
+## Code Overview
+The script initializes the I2C bus and the OLED display. It then enters a loop to monitor the state of the touch sensor on pin `X20`. 
+
+- **State 0 (Idle):** Display shows "not Touched", LED is OFF.
+- **State 1 (Active):** Display shows "Touched", LED is ON.
